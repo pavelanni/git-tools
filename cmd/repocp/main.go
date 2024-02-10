@@ -13,6 +13,7 @@ func main() {
 
 	var srcRepo *string = flag.StringP("repo", "r", "", "source repo, required")
 	var dstDir *string = flag.StringP("dst", "d", "", "destination directory, required")
+	var srcDir *string = flag.StringP("src", "s", ".", "source directory, default is .")
 	var branch *string = flag.StringP("branch", "b", "", "branch to copy from; default is HEAD")
 	var help *bool = flag.BoolP("help", "h", false, "help")
 
@@ -36,7 +37,7 @@ func main() {
 		fmt.Println("branch not specified, defaulting to HEAD")
 	}
 
-	err := gitrepo.Copy(*srcRepo, *branch, *dstDir)
+	err := gitrepo.Copy(*srcRepo, *branch, *srcDir, *dstDir)
 	if err != nil {
 		log.Fatal(err)
 	}

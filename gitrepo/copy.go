@@ -14,13 +14,17 @@ import (
 	"github.com/go-git/go-git/v5/storage/memory"
 )
 
-func Copy(repo, branch, dst string) error {
+// Copy copies the files from the source directory of the repo/branch
+// to the destination directory in the local filesystem.
+//
+// Parameters: repo (string), branch (string), src (string), dst (string)
+// Return type: error
+func Copy(repo, branch, src, dst string) error {
 	fs, err := cloneToMemFs(repo, branch)
 	if err != nil {
 		return err
 	}
-	//printDir(fs, "./")
-	err = copyDirFromMemFs(fs, ".", dst)
+	err = copyDirFromMemFs(fs, src, dst)
 	if err != nil {
 		return err
 	}
