@@ -1,0 +1,3 @@
+= Git tools
+
+`repocp` copies a Git repo to a directory. It copies just a single branch which you can set with the `-b` flag, without any Git history.
