@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/pavelanni/git-tools/repo"
+	"github.com/pavelanni/git-tools/gitrepo"
 	flag "github.com/spf13/pflag"
 )
 
@@ -36,7 +36,7 @@ func main() {
 		fmt.Println("branch not specified, defaulting to HEAD")
 	}
 
-	err := repo.Copy(*srcRepo, *branch, *dstDir)
+	err := gitrepo.Copy(*srcRepo, *branch, *dstDir)
 	if err != nil {
 		log.Fatal(err)
 	}
